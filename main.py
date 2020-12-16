@@ -58,8 +58,8 @@ async def on_message(message):
     quote = get_InspirationQuote()
     await message.channel.send(quote)
 
-  if any(word in message.content for word in COD_Warzone):
-    await channel.send(file=discord.File('Screenshot_3.png'))
+  #if any(word in message.content for word in COD_Warzone):
+   # await channel.send(file=discord.File('Screenshot_3.png'))
 
   if any(word in message.content for word in sad_words):
       await message.channel.send(random.choice(start_encouragements))
