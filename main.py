@@ -67,7 +67,7 @@ async def on_message(message):
     print('warzone codes image'.format(client))
     await message.channel.send(file=discord.File('CardBunkers.jpg'))
     await message.channel.send(file=discord.File('Screenshot_3.png'))
-    #await message.channel.send(files = COD_Images)
+ 
 
   if any(word in message.content for word in sad_words):
       await message.channel.send(random.choice(start_encouragements))
