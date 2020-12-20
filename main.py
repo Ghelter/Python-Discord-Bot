@@ -18,6 +18,11 @@ COD_Warzone = [
   "codes"
 ]
 
+COD_Images = [
+  discord.File('Screenshot_3.png'),
+  discord.File('CardBunkers.jpg'),
+]
+
 start_encouragements = [
   "cheer up!",
   "Hang in there.",
@@ -51,15 +56,18 @@ async def on_message(message):
 
   if message.content.startswith('hello'):
     print('hello msg'.format(client))
-    await message.channel.send('Hello! say $hello, inspire')
+    await message.channel.send('Hello! Welcome to the server. say -$hello, -inspire')
 
   if message.content.startswith('inspire'):
     print('inspiration quote'.format(client))
     quote = get_InspirationQuote()
     await message.channel.send(quote)
 
-  #if any(word in message.content for word in COD_Warzone):
-   # await channel.send(file=discord.File('Screenshot_3.png'))
+  if any(word in message.content for word in COD_Warzone):
+    print('warzone codes image'.format(client))
+    await message.channel.send(file=discord.File('CardBunkers.jpg'))
+    await message.channel.send(file=discord.File('Screenshot_3.png'))
+    #await message.channel.send(files = COD_Images)
 
   if any(word in message.content for word in sad_words):
       await message.channel.send(random.choice(start_encouragements))
