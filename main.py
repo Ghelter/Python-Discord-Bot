@@ -3,6 +3,7 @@ import os
 import requests
 import json
 import random
+from emoji import EMOJI_ALIAS_UNICODE as EMOJIS
 
 
 
@@ -10,6 +11,13 @@ import random
 client = discord.Client()
 
 sad_words = ["sad", "depressed", "unhappy", "angry", "miserable", "depressing"]
+
+AngryEmoji = EMOJIS[':rage:']
+
+Nono_Words = [
+  "die",
+  "hang yourself",
+]
 
 COD_Warzone = [
   "warzone",
@@ -63,11 +71,16 @@ async def on_message(message):
     quote = get_InspirationQuote()
     await message.channel.send(quote)
 
+  if any(word in message.content for word in Nono_Words):
+    print('No no word has been said'.format(client))
+    await message.add_reaction(AngryEmoji)
+    
+
   if any(word in message.content for word in COD_Warzone):
     print('warzone codes image'.format(client))
     await message.channel.send(file=discord.File('CardBunkers.jpg'))
     await message.channel.send(file=discord.File('Screenshot_3.png'))
- 
+    
 
   if any(word in message.content for word in sad_words):
       await message.channel.send(random.choice(start_encouragements))
