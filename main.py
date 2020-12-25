@@ -44,11 +44,6 @@ def get_InspirationQuote():
   quote = json_data[0]["q"] + " -by " + json_data[0]["a"]
   return(quote)  
 
-
-# async def coin(self, ctx):
-#  n = random.randint(0, 1)
-#  await ctx.send("Heads" if n == 1 else "Tails")
-
 @client.event
 async def on_ready():
   print('We have logged in as {0.user}'.format(client))
