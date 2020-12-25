@@ -94,5 +94,5 @@ async def on_message(message):
         await message.channel.send(file=discord.File('source.gif'))
   
 
-keep_online()
+
 client.run(os.getenv('TOKEN'))
